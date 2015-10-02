@@ -21,15 +21,18 @@ RUN apt-get -y --force-yes install \
   flac \
   lame \
   sox \
+  supervisor \
   wavpack \
   logitechmediaserver
 
-ADD ./startup.sh /startup.sh
-RUN chmod u+x /startup.sh
+RUN mkdir -p /var/log/supervisor
+
+COPY ./etc/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 RUN rm -rf /usr/share/squeezeboxserver/Bin/i386-linux; ln -s /usr/bin /usr/share/squeezeboxserver/Bin/i386-linux
 
+VOLUME ["/mnt/state"]
 EXPOSE 3483 3483/udp 9000 9090
 
-ENTRYPOINT ["/startup.sh"]
+CMD ["/usr/bin/supervisord"]
 
