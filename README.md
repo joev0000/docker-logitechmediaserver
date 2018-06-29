@@ -1,6 +1,7 @@
-# Docker Container for Logitech Media Server
+# Docker Container for Logitech Media Server 7.9.1
 
-Docker image for Logitech Media Server (SqueezeCenter, SqueezeboxServer, SlimServer).
+Docker image for <a href="https://github.com/Logitech/slimserver">Logitech Media Server</a>
+(aka SqueezeCenter, SqueezeboxServer, SlimServer).
 
 Run Directly:
 
